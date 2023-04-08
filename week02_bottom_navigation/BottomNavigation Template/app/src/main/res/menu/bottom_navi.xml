@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<!--
+xmlns은 import의 성격을 띈다
+xmlns:android의 android를 마음대로 바꿔도 되지만
+암묵적인 약속으로 android라 작성
+-->
+<!--
+<menu> : 메뉴 항목의 컨테이너/<item>,<group>요소를 사용해 메뉴 구성
+<item> : 하나의 메뉴 항목 나타냄/ <menu>사용해 하위 메뉴 생성 가능
+-->
+<!-- <item>속성
+android:id : 이 id를 통해 각각의 항목을 인식할 수 있다
+android:icon : 메뉴를 이미지로 나타내는 경우 사용한다.
+android:title : 메뉴에 나타낼 문자열
+android:enabled : 활성화 여부, "true":기본
+app:showAsAction : 앱 바에서 나타나는 시기와 방법을 결정한다
+              속성: always: 항상 앱 바에 배치. 다른 UI와 겹쳐질 수 있다.
+-->
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/bottom_navi_home_ic"
+        android:title="home"
+        android:enabled="true"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/bottom_navi_search_ic"
+        android:title="search"
+        android:enabled="true"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/reels"
+        android:icon="@drawable/bottom_navi_reels_ic"
+        android:title="reels"
+        android:enabled="true"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/shop"
+        android:icon="@drawable/bottom_navi_shop_ic"
+        android:title="shop"
+        android:enabled="true"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/bottom_navi_profile_ic"
+        android:title="profile"
+        android:enabled="true"
+        app:showAsAction="always" />
+
+</menu>
