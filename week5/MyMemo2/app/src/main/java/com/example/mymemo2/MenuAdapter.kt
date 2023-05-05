@@ -10,7 +10,8 @@ data class Data(
     val content: String
 )
 
-class MenuAdapter(private val dataList: List<Data>) : RecyclerView.Adapter<MenuAdapter.MyViewHolder>() {
+class MenuAdapter(private val dataList: MutableList<Data>) : RecyclerView.Adapter<MenuAdapter.MyViewHolder>() {
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.recyclerveiw_item, parent, false)
@@ -20,6 +21,29 @@ class MenuAdapter(private val dataList: List<Data>) : RecyclerView.Adapter<MenuA
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {//실제로 표시하는 역할
         val data = dataList[position]
         holder.contentTextView.text = data.content
+        // (1) 리스트 내 항목 클릭 시 onClick() 호출
+        holder.itemView.setOnClickListener {
+            itemClickListener.onClick(it, position)
+        }
+    }
+    //클릭 이벤트 처리 ==============================================
+    //리스너 인터페이스
+    interface  OnItemClickListener{
+        fun onClick(view: View, position: Int)
+    }
+    // (3) 외부에서 클릭 시 이벤트 설정
+    fun setItemClickListener(onItemClickListener: OnItemClickListener) {
+        this.itemClickListener = onItemClickListener
+    }
+    // (4) setItemClickListener로 설정한 함수 실행
+    private lateinit var itemClickListener : OnItemClickListener
+    //==============================================================
+
+    //아이템 삭제 이벤트 처리
+    fun removeItem(position: Int) {
+        dataList.removeAt(position)
+        notifyItemRemoved(position)
+        notifyItemRangeChanged(position, dataList.size)
     }
 
     override fun getItemCount(): Int = dataList.size
@@ -29,3 +53,4 @@ class MenuAdapter(private val dataList: List<Data>) : RecyclerView.Adapter<MenuA
     }
 
 }
+
