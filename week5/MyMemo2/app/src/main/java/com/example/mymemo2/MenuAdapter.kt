@@ -30,6 +30,7 @@ class MenuAdapter(private val dataList: MutableList<Data>) : RecyclerView.Adapte
     //리스너 인터페이스
     interface  OnItemClickListener{
         fun onClick(view: View, position: Int)
+
     }
     // (3) 외부에서 클릭 시 이벤트 설정
     fun setItemClickListener(onItemClickListener: OnItemClickListener) {
@@ -39,12 +40,21 @@ class MenuAdapter(private val dataList: MutableList<Data>) : RecyclerView.Adapte
     private lateinit var itemClickListener : OnItemClickListener
     //==============================================================
 
+
     //아이템 삭제 이벤트 처리
     fun removeItem(position: Int) {
         dataList.removeAt(position)
         notifyItemRemoved(position)
         notifyItemRangeChanged(position, dataList.size)
     }
+    //아이템 수정 이벤트 처리
+    fun eidtItem(position: Int, editData: String) {
+        dataList[position] = Data(editData)
+        notifyItemChanged(position)
+        notifyItemRangeChanged(position, dataList.size)
+    }
+
+
 
     override fun getItemCount(): Int = dataList.size
 
