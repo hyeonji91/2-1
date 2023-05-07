@@ -19,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginEnd="150dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="10dp"
         />
     <ImageButton
         android:id="@+id/plus"
@@ -32,7 +32,7 @@
         app:layout_constraintStart_toEndOf="@id/userId"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="10dp"
         />
     <ImageButton
         android:id="@+id/menu"
@@ -44,7 +44,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/plus"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="10dp"
         />
 
 
@@ -155,64 +155,84 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         android:text="프로필 편집"
-        app:layout_constraintBottom_toTopOf="@id/highlight"
+        app:layout_constraintBottom_toTopOf="@id/midConstraint"
         app:layout_constraintEnd_toStartOf="@id/recomFriend"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/info"
         android:layout_marginStart="10dp"
         android:paddingStart="130dp"
         android:paddingEnd="130dp"/>
+
     <ImageButton
         android:id="@+id/recomFriend"
         android:layout_width="50dp"
         android:layout_height="50dp"
         app:srcCompat="@drawable/ic_recommend_friend"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@id/highlight"
+        app:layout_constraintBottom_toTopOf="@id/midConstraint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/editPro"
-        app:layout_constraintTop_toBottomOf="@id/info"
-        android:layout_marginEnd="10dp"/>
+        app:layout_constraintTop_toBottomOf="@id/info" />
 
-    <TextView
-        android:id="@+id/highlight"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/midConstraint"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:text="스토리 하이라이트"
-        app:layout_constraintBottom_toTopOf="@id/postGrid"
-        app:layout_constraintEnd_toStartOf="@id/arrowBtm"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editPro"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        android:layout_marginStart="20dp"/>
-    <ImageButton
-        android:id="@+id/arrowBtm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_arrow_bottom"
-        android:background="@android:color/transparent"
-        app:layout_constraintBottom_toTopOf="@id/postGrid"
+        android:paddingBottom = "10dp"
+        app:layout_constraintBottom_toTopOf="@id/sixthConstraint"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/highlight"
-        app:layout_constraintTop_toBottomOf="@id/editPro"
-        android:layout_marginEnd="25dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editPro">
 
+        <TextView
+            android:id="@+id/highlight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="스토리 하이라이트"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/midConstraint"
+            app:layout_constraintEnd_toStartOf="@id/arrowBtm"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="@id/midConstraint"
+            app:layout_constraintTop_toTopOf="@id/midConstraint" />
 
+        <ImageButton
+            android:id="@+id/arrowBtm"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="25dp"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="@id/midConstraint"
+            app:layout_constraintEnd_toEndOf="@id/midConstraint"
+            app:layout_constraintStart_toEndOf="@id/highlight"
+            app:layout_constraintTop_toTopOf="@id/midConstraint"
+            app:srcCompat="@drawable/ic_arrow_bottom" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/sixthConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/midConstraint"
+        >
     <ImageButton
         android:id="@+id/postGrid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/ic_postgrid"
         android:background="@android:color/transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/infoTag"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/highlight"
+        app:layout_constraintStart_toStartOf="@id/sixthConstraint"
+        app:layout_constraintTop_toTopOf="@id/sixthConstraint"
+
         app:layout_constraintHorizontal_chainStyle="spread"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="360dp"/>
+        />
 
     <ImageButton
         android:id="@+id/infoTag"
@@ -220,11 +240,11 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/ic_myinfo_tag"
         android:background="@android:color/transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/postGrid"
-        app:layout_constraintTop_toBottomOf="@id/highlight"
-        android:layout_marginBottom="360dp"/>
 
+        app:layout_constraintEnd_toEndOf="@id/sixthConstraint"
+        app:layout_constraintStart_toEndOf="@id/postGrid"
+        app:layout_constraintTop_toTopOf="@id/sixthConstraint"
+        />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
