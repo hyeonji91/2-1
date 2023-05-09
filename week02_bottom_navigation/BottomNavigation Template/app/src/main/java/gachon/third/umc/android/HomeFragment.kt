@@ -39,11 +39,11 @@ class HomeFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //스토리 리사이클러뷰
         val storyData = ArrayList<StoryData>()
         val storyAdapter = StoryAdapter(storyData)
         binding.storyRecyclerview.adapter = storyAdapter
         binding.storyRecyclerview.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-
         addStroy(storyData)
         binding.storyRecyclerview.adapter?.notifyDataSetChanged()
         binding.storyRecyclerview.addItemDecoration(RecyclerViewDecoration(32));
@@ -51,7 +51,7 @@ class HomeFragment: Fragment() {
 
 
 
-
+        //게시물 리사이클러뷰
         val postData = ArrayList<PostData>()
         val postAdapter = PostAdapter(postData)
         val postRecyclerView: RecyclerView = binding.postRecyclerview
@@ -78,34 +78,22 @@ class RecyclerViewDecoration(private val divWidth: Int) : ItemDecoration() {
 }
 
 fun addStroy(storyData : ArrayList<StoryData>){
-    storyData.add(StoryData("user1 ", R.drawable.ic_profile_default, R.drawable.ic_story_border))
-    storyData.add(StoryData("user2 ", R.drawable.ic_profile_default, R.drawable.ic_story_border))
-    storyData.add(StoryData("user3 ", R.drawable.ic_profile_default, R.drawable.ic_story_border))
-    storyData.add(StoryData("user4 ", R.drawable.ic_profile_default, R.drawable.ic_story_border))
-    storyData.add(StoryData("user5 ", R.drawable.ic_profile_default, R.drawable.ic_story_border))
-    storyData.add(StoryData("user6 ", R.drawable.ic_profile_default, R.drawable.ic_story_border))
-    storyData.add(StoryData("user7 ", R.drawable.ic_profile_default, R.drawable.ic_story_border))
-    storyData.add(StoryData("user8 ", R.drawable.ic_profile_default, R.drawable.ic_story_border))
-    storyData.add(StoryData("user9 ", R.drawable.ic_profile_default, R.drawable.ic_story_border))
+    storyData.add(StoryData("내 스토리 ", R.drawable.ic_profile_default, R.drawable.ic_story_add, multi_type2))
+
+    for(i in 1..9){
+        storyData.add(StoryData("user$i", R.drawable.ic_profile_default, R.drawable.ic_story_border, multi_type1))
+    }
+//
 }
 
 fun addPost(postData: ArrayList<PostData>){
-    postData.add(PostData(
-        R.drawable.ic_profile_default,
-        "user1",
-        R.drawable.ic_launcher_background,
-        SpannableString("좋아요 1개\n"+"user1 "+" 안녕하세요 가천대학교 UMC 초코입니다\n"+"댓글 10개 모두보기\n"+"5월5일")
-    ))
-    postData.add(PostData(
-        R.drawable.ic_profile_default,
-        "user2",
-        R.drawable.ic_launcher_background,
-        SpannableString("좋아요 1개\n"+"user2 "+" 안녕하세요 가천대학교 UMC 초코입니다\n"+"댓글 10개 모두보기\n"+"5월5일")
-    ))
-    postData.add(PostData(
-        R.drawable.ic_profile_default,
-        "user3",
-        R.drawable.ic_launcher_background,
-        SpannableString("좋아요 1개\n"+"user3 "+" 안녕하세요 가천대학교 UMC 초코입니다\n"+"댓글 10개 모두보기\n"+"5월5일")
-    ))
+    for(i in 1..3){
+        postData.add(PostData(
+            R.drawable.ic_profile_default,
+            "user$i",
+            R.drawable.ic_launcher_background,
+            SpannableString("좋아요 1개\n"+"user$i"+" 안녕하세요 가천대학교 UMC 초코$i"+"입니다\n"+"댓글 10개 모두보기\n"+"5월5일")
+        ))
+    }
+
 }
