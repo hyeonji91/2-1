@@ -1,6 +1,8 @@
 package gachon.third.umc.android
 
+
 import android.content.Intent
+import android.graphics.PorterDuff
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,14 +10,22 @@ import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.os.bundleOf
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
+import com.google.android.material.tabs.TabLayoutMediator
 import gachon.third.umc.android.databinding.FragmentProfileBinding
+
 
 class ProfileFragment: Fragment() {
 
     lateinit var binding: FragmentProfileBinding
     private lateinit var getResultText: ActivityResultLauncher<Intent>
+    //tablayout icon
+    private val tabIconList = listOf(R.drawable.ic_postgrid, R.drawable.ic_myinfo_tag)
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -45,8 +55,6 @@ class ProfileFragment: Fragment() {
             }
         }
         binding.editPro.setOnClickListener{
-
-
             val intent = Intent(requireActivity(), ProfileEditActivity::class.java)
             intent.putExtra("userId", binding.userId.text.toString())
             intent.putExtra("name", binding.name.text.toString())
@@ -54,6 +62,41 @@ class ProfileFragment: Fragment() {
             //startActivity(intent)
             getResultText.launch(intent)
         }
+
+        //Tablayout과 viewpager연결
+        binding.viewPager.adapter = PorfileViewPagerAdapter(requireActivity())
+        TabLayoutMediator(binding.tabLayout, binding.viewPager){tab, position->
+            tab.setIcon(tabIconList[position])
+        }.attach()
+
+
+        tablayoutIconColor()
+    }
+
+    //tablayout icon color
+    fun tablayoutIconColor(){
+        val unSelected: Int = ContextCompat.getColor(requireActivity(), R.color.unselect)
+        val selected: Int = ContextCompat.getColor(requireActivity(), android.R.color.black)
+        //초기화
+        binding.tabLayout.getTabAt(0)?.getIcon()?.setColorFilter(selected, PorterDuff.Mode.SRC_IN);
+        binding.tabLayout.getTabAt(1)?.getIcon()?.setColorFilter(unSelected, PorterDuff.Mode.SRC_IN);
+        //클릭했을 때
+        binding.tabLayout.addOnTabSelectedListener(object : OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                // 선택된 탭의 아이콘 색상 변경
+                tab.getIcon()?.setColorFilter(selected, PorterDuff.Mode.SRC_IN);
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab) {
+                // 선택이 해제된 탭의 아이콘 색상 변경
+                tab.getIcon()?.setColorFilter(unSelected, PorterDuff.Mode.SRC_IN);
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab) {
+                // Do nothing
+            }
+        })
+
     }
 
 }

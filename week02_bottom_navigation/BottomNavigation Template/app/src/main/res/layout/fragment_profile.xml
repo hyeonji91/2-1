@@ -160,20 +160,22 @@
         app:layout_constraintTop_toBottomOf="@+id/name"
         android:layout_marginStart="20dp"
         />
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/editPro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:backgroundTint="#D5D6D6"
+        android:paddingStart="130dp"
+        android:paddingEnd="130dp"
+        android:text="프로필 편집"
         android:textColor="@color/black"
         android:textSize="16sp"
-        android:text="프로필 편집"
         app:layout_constraintBottom_toTopOf="@id/midConstraint"
         app:layout_constraintEnd_toStartOf="@id/recomFriend"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/info"
-        android:layout_marginStart="10dp"
-        android:paddingStart="130dp"
-        android:paddingEnd="130dp"/>
+        app:layout_constraintTop_toBottomOf="@id/info" />
 
     <ImageButton
         android:id="@+id/recomFriend"
@@ -232,31 +234,52 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/midConstraint"
         >
-    <ImageButton
-        android:id="@+id/postGrid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_postgrid"
-        android:background="@android:color/transparent"
-        app:layout_constraintEnd_toStartOf="@id/infoTag"
-        app:layout_constraintStart_toStartOf="@id/sixthConstraint"
-        app:layout_constraintTop_toTopOf="@id/sixthConstraint"
+<!--    <ImageButton-->
+<!--        android:id="@+id/postGrid"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:srcCompat="@drawable/ic_postgrid"-->
+<!--        android:background="@android:color/transparent"-->
+<!--        app:layout_constraintEnd_toStartOf="@id/infoTag"-->
+<!--        app:layout_constraintStart_toStartOf="@id/sixthConstraint"-->
+<!--        app:layout_constraintTop_toTopOf="@id/sixthConstraint"-->
 
-        app:layout_constraintHorizontal_chainStyle="spread"
-        android:layout_marginEnd="50dp"
-        />
+<!--        app:layout_constraintHorizontal_chainStyle="spread"-->
+<!--        android:layout_marginEnd="50dp"-->
+<!--        />-->
 
-    <ImageButton
-        android:id="@+id/infoTag"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_myinfo_tag"
-        android:background="@android:color/transparent"
+<!--    <ImageButton-->
+<!--        android:id="@+id/infoTag"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:srcCompat="@drawable/ic_myinfo_tag"-->
+<!--        android:background="@android:color/transparent"-->
 
-        app:layout_constraintEnd_toEndOf="@id/sixthConstraint"
-        app:layout_constraintStart_toEndOf="@id/postGrid"
-        app:layout_constraintTop_toTopOf="@id/sixthConstraint"
-        />
+<!--        app:layout_constraintEnd_toEndOf="@id/sixthConstraint"-->
+<!--        app:layout_constraintStart_toEndOf="@id/postGrid"-->
+<!--        app:layout_constraintTop_toTopOf="@id/sixthConstraint"-->
+<!--        />-->
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/midConstraint"
+        app:layout_constraintBottom_toTopOf="@+id/view_pager"
+
+        app:tabIndicatorColor="@color/black"/>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tab_layout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
