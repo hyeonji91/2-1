@@ -28,7 +28,7 @@
             android:layout_marginBottom="10dp"
             android:text="회원님이 나온 사진 및 동영상"
             android:textColor="#000000"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
@@ -36,13 +36,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="사람들이 회원님을 사진 및 동영상을 태그하면"
-            android:textSize="10sp" />
+            android:textSize="12sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="태그된 사진 및 동영상이 여기에 표시됩니다."
-            android:textSize="10sp" />
+            android:textSize="12sp" />
     </LinearLayout>
 </FrameLayout>

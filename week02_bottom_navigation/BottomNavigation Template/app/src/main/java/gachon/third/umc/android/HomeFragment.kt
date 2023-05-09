@@ -42,10 +42,12 @@ class HomeFragment: Fragment() {
         //스토리 리사이클러뷰
         val storyData = ArrayList<StoryData>()
         val storyAdapter = StoryAdapter(storyData)
+
         binding.storyRecyclerview.adapter = storyAdapter
         binding.storyRecyclerview.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         addStroy(storyData)
         binding.storyRecyclerview.adapter?.notifyDataSetChanged()
+        //리사이클러뷰 아이템 간 간격 조절
         binding.storyRecyclerview.addItemDecoration(RecyclerViewDecoration(32));
 
 
@@ -54,6 +56,7 @@ class HomeFragment: Fragment() {
         //게시물 리사이클러뷰
         val postData = ArrayList<PostData>()
         val postAdapter = PostAdapter(postData)
+
         val postRecyclerView: RecyclerView = binding.postRecyclerview
         postRecyclerView.adapter = postAdapter
         postRecyclerView.layoutManager = LinearLayoutManager(activity)

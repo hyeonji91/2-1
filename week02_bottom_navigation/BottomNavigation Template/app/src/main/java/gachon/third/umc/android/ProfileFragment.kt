@@ -12,6 +12,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.google.android.material.tabs.TabLayoutMediator
@@ -69,8 +70,15 @@ class ProfileFragment: Fragment() {
             tab.setIcon(tabIconList[position])
         }.attach()
 
-
+        //tablayout icon 색 변경 함수
         tablayoutIconColor()
+
+        //스토리하이라이트 리사이클러뷰
+        val hightlightData = ArrayList<HightlightData>()
+        val hightlightAdapter = HighlightAdapter(hightlightData)
+        binding.highlightRecyclerview.adapter = hightlightAdapter
+        binding.highlightRecyclerview.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        addHighlight(hightlightData)
     }
 
     //tablayout icon color
@@ -96,7 +104,13 @@ class ProfileFragment: Fragment() {
                 // Do nothing
             }
         })
+    }
 
+    fun addHighlight(hightlightData : ArrayList<HightlightData>){
+        hightlightData.add(HightlightData("신규",multi_type1))
+        for(i in 1..9){
+            hightlightData.add(HightlightData("",multi_type2))
+        }
     }
 
 }
