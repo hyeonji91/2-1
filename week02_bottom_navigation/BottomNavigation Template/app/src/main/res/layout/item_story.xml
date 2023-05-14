@@ -19,14 +19,11 @@
         app:layout_constraintBottom_toTopOf="@+id/name"
         android:layout_gravity="center">
 
-        <ImageButton
+        <ImageView
             android:id="@+id/profileImg"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            app:srcCompat="@drawable/ic_profile_default"
-            android:background="@android:color/transparent"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
+            android:src="@drawable/ic_profile_default"
             android:translationX="5.5dp"
             android:translationY="4.5dp" />
 

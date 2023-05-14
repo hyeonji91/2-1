@@ -8,17 +8,27 @@
     android:backgroundTint="#5C5C5C"
     tools:context=".StoryviewActivity">
 
+
+    <ImageView
+        android:id="@+id/storyImg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:layout_marginTop="20dp">
 
         <SeekBar
             android:id="@+id/seekBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:max="5000"
             android:paddingBottom="15dp"
+            android:progressTint="#FFFFFF"
             android:thumb="@null"
             android:thumbTint="#FFFFFF" />
 
@@ -28,7 +38,10 @@
             android:gravity="center_vertical"
             android:orientation="horizontal"
             tools:layout_editor_absoluteX="1dp"
-            tools:layout_editor_absoluteY="1dp">
+            tools:layout_editor_absoluteY="1dp"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            >
 
             <ImageButton
                 android:id="@+id/imageButton2"
@@ -43,16 +56,17 @@
                 android:id="@+id/userId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="10dp"
                 android:text="userId"
                 android:textColor="#FFFFFF"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:text="time"
                 android:textColor="#FFFFFF"
@@ -72,11 +86,7 @@
     </LinearLayout>
 
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:srcCompat="@drawable/ic_launcher_background" />
+
 
 
     <LinearLayout
@@ -86,7 +96,7 @@
         android:layout_gravity="bottom"
         android:gravity="center_vertical"
         android:paddingLeft="10dp"
-        android:paddingBottom="5dp"
+        android:paddingBottom="30dp"
         android:paddingTop="5dp"
         android:paddingEnd="10dp"
         >

@@ -1,5 +1,7 @@
 package gachon.third.umc.android
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,12 +19,16 @@ import android.text.SpannableString
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.StyleSpan
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import gachon.third.umc.android.databinding.ItemPostBinding
 
 class HomeFragment: Fragment() {
 
     //private lateinit var storyAdapter: StoryAdapter
     lateinit var binding: FragmentHomeBinding
+    //private lateinit var getResultText: ActivityResultLauncher<Intent>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -63,10 +69,24 @@ class HomeFragment: Fragment() {
 
         addPost(postData)
 
+
+        //StoryviewActivity로 스토리 화면 만드는 데이터 보내기
+        storyAdapter.setItemClickListener(object : StoryAdapter.OnItemClickListener {
+            override fun onClick(view: View, position: Int) {
+                //스토리 클릭 시 이벤트 작성
+                val intent = Intent(requireActivity(), StoryviewActivity::class.java)
+                intent.putExtra("msg", position)
+                intent.putExtra("userId", storyData[position].userId)
+                intent.putExtra("time", storyData[position].time)
+                intent.putExtra("storyImg", storyData[position].storyImg)
+                startActivity(intent)
+
+//                getResultText.launch(intent)
+            }
+        })
     }
 
 }
-
 
 class RecyclerViewDecoration(private val divWidth: Int) : ItemDecoration() {
     override fun getItemOffsets(
@@ -81,10 +101,11 @@ class RecyclerViewDecoration(private val divWidth: Int) : ItemDecoration() {
 }
 
 fun addStroy(storyData : ArrayList<StoryData>){
-    storyData.add(StoryData("내 스토리 ", R.drawable.ic_profile_default, R.drawable.ic_story_add, multi_type2))
-
+    storyData.add(StoryData("내 스토리 ", R.drawable.ic_profile_default, R.drawable.ic_story_add,1,R.drawable.story3, multi_type2))
+    val storyImg = arrayListOf(R.drawable.story1, R.drawable.story2, R.drawable.story3)
     for(i in 1..9){
-        storyData.add(StoryData("user$i", R.drawable.ic_profile_default, R.drawable.ic_story_border, multi_type1))
+        storyData.add(StoryData("user$i", R.drawable.ic_profile_default, R.drawable.ic_story_border, i, storyImg[i%3] , multi_type1))
+
     }
 //
 }
@@ -100,3 +121,4 @@ fun addPost(postData: ArrayList<PostData>){
     }
 
 }
+

@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
 
 
     fun Edit(dataList: MutableList<Data>) {
-        //버튼 누르면 메모 추가
+
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
         var menuAdapter = MenuAdapter(dataList)
 
