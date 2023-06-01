@@ -7,7 +7,6 @@
     tools:context=".Sgin.EmailFragment"
     android:orientation="vertical"
     android:gravity="center_horizontal">
-
     <FrameLayout
         android:id="@+id/frame"
         android:layout_width="300dp"
@@ -18,7 +17,7 @@
 
 
         <EditText
-            android:id="@+id/pwd"
+            android:id="@+id/sginEmail"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:background="@drawable/edittext_border2"
@@ -29,10 +28,11 @@
             android:textSize="12sp" />
 
         <ImageButton
-            android:id="@+id/btnHidepwd"
+            android:id="@+id/btnDelEmail"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:padding="10dp"
+            android:layout_margin="10dp"
             android:layout_gravity="center_vertical|right"
             android:src="@drawable/ic_text_erase"
             android:background="@android:color/transparent"
@@ -41,7 +41,7 @@
 
     </FrameLayout>
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button"
+        android:id="@+id/sginEmailBtn"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginBottom="16dp"
