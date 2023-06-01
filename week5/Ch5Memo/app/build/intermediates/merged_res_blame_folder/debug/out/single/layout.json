@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "com.example.ch5memo.app-mergeDebugResources-28:/layout/activity_main.xml",
+        "source": "com.example.ch5memo.app-main-31:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.ch5memo.app-mergeDebugResources-28:/layout/recyclerveiw_item.xml",
+        "source": "com.example.ch5memo.app-main-31:/layout/recyclerveiw_item.xml"
+    },
+    {
+        "merged": "com.example.ch5memo.app-mergeDebugResources-28:/layout/activity_add_memo.xml",
+        "source": "com.example.ch5memo.app-main-31:/layout/activity_add_memo.xml"
+    }
+]
