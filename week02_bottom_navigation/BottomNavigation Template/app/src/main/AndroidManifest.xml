@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="gachon.third.umc.android">
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".App"
+        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -10,7 +13,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Instagram">
         <activity
+            android:name=".SginuserNameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SginPwdActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SginNameActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SginEmailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StoryviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileEditActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

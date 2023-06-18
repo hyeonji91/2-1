@@ -18,6 +18,7 @@ class SubActivity : AppCompatActivity() {
         if(intent.hasExtra("msg")){
             binding.getText.text = intent.getStringExtra("msg")
         }
+
         binding.btnSwitch2.setOnClickListener{
             val intent = Intent(this, SubActivity2::class.java)
             startActivity(intent)
