@@ -17,6 +17,7 @@ class SginNameActivity : AppCompatActivity() {
 
         binding.sginNameBtn.setOnClickListener{
             val intent = Intent(this, SginPwdActivity::class.java)
+            intent.putExtra("userId",binding.sginName.text.toString())
             startActivity(intent)
         }
 

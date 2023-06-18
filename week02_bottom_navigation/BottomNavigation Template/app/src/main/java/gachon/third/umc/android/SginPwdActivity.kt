@@ -15,8 +15,15 @@ class SginPwdActivity : AppCompatActivity() {
         binding = ActivitySginPwdBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        var userId: String = "";
+        if(intent.hasExtra("userId")){
+            userId = intent.getStringExtra("userId").toString()
+        }
+
         binding.sginPwdBtn.setOnClickListener{
-            val intent = Intent(this, SginEmailActivity::class.java)
+            val intent = Intent(this, SginuserNameActivity::class.java)
+            intent.putExtra("userId",userId);
+            intent.putExtra("userPwd",binding.sginPwd.text.toString())
             startActivity(intent)
         }
 
