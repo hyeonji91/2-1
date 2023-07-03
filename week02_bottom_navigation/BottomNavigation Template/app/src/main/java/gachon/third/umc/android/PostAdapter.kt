@@ -60,22 +60,42 @@ class PostAdapter(private val dataList: ArrayList<Post>) : RecyclerView.Adapter<
 
 
     //var s = "좋아요 1개\n"+"${dataList[position].userID}"+" ${dataList[position].postContent}"+"\n"+"댓글 10개 모두보기\n"+"${dataList[position].uploadTime}"
-    var context = SpannableString("좋아요 1개\n"+"${dataList[position].userID}"+" ${dataList[position].postContent}"+"\n"+"댓글 10개 모두보기\n"+"${dataList[position].uploadTime}")
 
     val boldStyle = StyleSpan(Typeface.BOLD)
     val colorBlueSpan = ForegroundColorSpan(Color.GRAY)
     val sizeBigSpan = RelativeSizeSpan(0.8f)
 
-    context.setSpan(boldStyle, 0, 12, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-    context.setSpan(colorBlueSpan, 35, context.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-    context.setSpan(
+
+
+//    context.setSpan(colorBlueSpan, 35, context.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+//    context.setSpan(
+//        sizeBigSpan,
+//        context.length - 4,
+//        context.length,
+//        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+//    )
+
+    var contextHeart = SpannableString("좋아요 1개")
+    contextHeart.setSpan(boldStyle, 0, contextHeart.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+    holder.binding.contextHeart.text = contextHeart
+
+    var context = SpannableString("${dataList[position].userID}"+" ${dataList[position].postContent}")
+    context.setSpan(boldStyle, 0, 7, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+    holder.binding.context.text = context
+
+    var comment = SpannableString("댓글 10개 모두보기")
+    comment.setSpan(colorBlueSpan, 0, comment.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+    holder.binding.comment.text = comment
+
+    var date = SpannableString("${dataList[position].uploadTime}")
+    date.setSpan(
         sizeBigSpan,
-        context.length - 4,
-        context.length,
+        0,
+        date.length,
         Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
     )
+    holder.binding.date.text = date
 
-    holder.binding.context.text = context
 
 ////spannable이용해서 글자 디자인
 //    var context = SpannableString(dataList[position].context)
